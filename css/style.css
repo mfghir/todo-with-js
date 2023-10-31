@@ -137,3 +137,10 @@ tbody td button:nth-child(3) {
 
     align-items: center;
 }
+
+.alert-success{
+    background-color: var(--color-success);
+}
+.alert-error{
+    background-color: var(--color-error);
+}
