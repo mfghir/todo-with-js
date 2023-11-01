@@ -58,7 +58,7 @@ const displayTodos = () => {
   });
 };
 
-coneditHandler = () => {
+const addHandler = () => {
   const task = taskInput.value;
   const date = dateInput.value;
   const todo = {
@@ -124,8 +124,28 @@ const editHandler = (id) => {
 
   addButton.style.display = "none";
   editButton.style.display = "inline-block";
+  editButton.dataset.id = id;
+};
+
+const applyEditHandler = (e) => {
+  const id = e.target.dataset.id;
+  const todo = todos.find((todo) => todo.id === id);
+  todo.task = taskInput.value;
+  todo.date = dateInput.value;
+
+  taskInput.value = "";
+  dateInput.value = "";
+
+  addButton.style.display = "inline-block";
+  editButton.style.display = "none";
+
+  saveToLocalStorage();
+  displayTodos();
+  showAlert("Todo updated successfully", "success");
 };
 
 window.addEventListener("load", displayTodos);
 addButton.addEventListener("click", addHandler);
 deleteAllButton.addEventListener("click", deleteAllHandler);
+
+editButton.addEventListener("click", applyEditHandler);
