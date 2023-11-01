@@ -138,9 +138,14 @@ tbody td button:nth-child(3) {
     align-items: center;
 }
 
-.alert-success{
+.alert-success {
     background-color: var(--color-success);
 }
-.alert-error{
+
+.alert-error {
     background-color: var(--color-error);
+}
+
+#edit-button {
+    display: none;
 }
